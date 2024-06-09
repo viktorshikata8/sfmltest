@@ -1,15 +1,16 @@
 #include <SFML/Graphics.hpp>
 #include <SFML/Window.hpp>
 #include <iostream>
+#include <cmath>
+#include <numbers>
 #include <filesystem>
 #include <format>
-#include "sfml.h"
 int main() {
     sf::RenderWindow zxc(sf::VideoMode(1280, 720), "goida");
     zxc.setTitle("Unlimited Potential");
     zxc.setFramerateLimit(60);
-    Circle u(zxc,50,sf::Color::Blue,400,300);
-    Circle z(zxc,40,sf::Color::Red,200,150);
+    sf::CircleShape shape(30.f);
+    shape.setFillColor(sf::Color(0, 0, 100));
     sf::Text Score;
     Score.setString("Score");
     Score.setCharacterSize(30);
@@ -19,8 +20,10 @@ int main() {
     font.loadFromFile("resources/Dotcom.ttf");
     Score.setFont(font);
     Score.setPosition(1200,50);
+    int i=0;
+
     while (zxc.isOpen()) {
-        sf::Event event1{};
+        sf::Event event1;
         while (zxc.pollEvent(event1)) {
             switch (event1.type) {
                 case sf::Event::Closed:
@@ -40,18 +43,19 @@ int main() {
                     std::cout << "Stop it please) \n";
                     break;
                 case::sf::Event::MouseButtonPressed:
-                    //auto mousePos=sf::Mouse::getPosition();
+                    auto mousePos=sf::Mouse::getPosition();
+                    auto figpos=shape.getPosition();
+                    if(mousePos.x>=figpos.x and mousePos.y==figpos.x )
                 //std::cout << std::format("Pos: [{}, {}]", mousePos.x, mousePos.y) << std::endl;
                 break;
-            default:
-            break;}
+            }
         }
 
-        Score.setString(std::to_string(5));
+        Score.setString(std::to_string(i));
         zxc.clear(sf::Color::Black);
         zxc.draw(Score);
-        u.draw();
-        z.draw();
+        shape.setPosition(++i, 90 * sin(i * std::numbers::pi/ 180));
+        zxc.draw(shape);
         zxc.display();
 
     }

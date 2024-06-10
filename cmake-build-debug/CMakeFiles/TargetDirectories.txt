@@ -1,3 +1,0 @@
-C:/Users/vivivi/Документы/GitHub/sfmltest/cmake-build-debug/CMakeFiles/sfmltest.dir
-C:/Users/vivivi/Документы/GitHub/sfmltest/cmake-build-debug/CMakeFiles/edit_cache.dir
-C:/Users/vivivi/Документы/GitHub/sfmltest/cmake-build-debug/CMakeFiles/rebuild_cache.dir

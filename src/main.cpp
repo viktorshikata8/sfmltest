@@ -14,7 +14,7 @@ int main() {
     shape.setFillColor(sf::Color(0, 0, 100));
     sf::Text Score;
     Score.setString("Score");
-    Score.setCharacterSize(30);
+    Score.setCharacterSize(80);
     Score.setFillColor(sf::Color::Blue);
     auto fontpath = std::filesystem::current_path() / "resources" / "Dotcom.ttf";
     sf::Font font;

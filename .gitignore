@@ -1,6 +1,0 @@
-*.csv
-*.svg
-*.log
-*.asv
-cmake-build-*
-.idea

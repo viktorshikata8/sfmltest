@@ -23,7 +23,6 @@ int main() {
     Score.setPosition(1000, 50);
     int i = 0;
     int score=0;
-
     while (zxc.isOpen()) {
         sf::Event event1;
         while (zxc.pollEvent(event1)) {
@@ -47,8 +46,9 @@ int main() {
                 case::sf::Event::MouseButtonPressed:
                     auto mousePos = sf::Mouse::getPosition(zxc);
                 auto figpos = shape.getPosition();
-                std::vector<double> centreshape={figpos.x+shape.getRadius(), figpos.y+shape.getRadius()};
-                if (mousePos.x <= ) {
+                int OX=std::pow((mousePos.x-figpos.x-shape.getRadius()),2);
+                int OY=std::pow((mousePos.y-figpos.y-shape.getRadius()),2);
+                if (OX+OY<=pow(shape.getRadius(),2)) {
                     score++;
                 }
                     //std::cout << std::format("Pos: [{}, {}]",mousePos.x, mousePos.y) << std::endl;
@@ -59,8 +59,7 @@ int main() {
         Score.setString("Score:"+std::to_string(score));
         zxc.clear(sf::Color::Black);
         zxc.draw(Score);
-        //shape.setPosition(++i,90*std::sin(i*std::numbers::pi/180) );
-        shape.setPosition(50,50 );
+        shape.setPosition(++i,90*std::sin(i*std::numbers::pi/180) );
         zxc.draw(shape);
         zxc.display();
     }
